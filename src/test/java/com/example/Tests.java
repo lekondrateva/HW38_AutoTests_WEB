@@ -108,8 +108,8 @@ public class Tests {
     public static final String DA_URL = "https://skillfactory.ru/analitika-dannyh";
 
     // Telegram
-    public static final String TELEGRAM_XPATH = "//div[@data-elem-id='1608548393853']/a";
-    public static final String TELEGRAM_URL = "https://www.instagram.com/skillfactoryschool/";
+    public static final String TELEGRAM_XPATH = "//div[@data-elem-id='1608548393860']/a";
+    public static final String TELEGRAM_URL = "https://t.me/skillfactory";
 
     // Программирование
     public static final String PROGR_URL = "https://skillfactory.ru/programmirovanie";
@@ -199,7 +199,7 @@ public class Tests {
         //webDriver.close();
     }
 
-    // 6 -Подписаться на рассылку "Бесплатный гид по направлениям в IT", либо вывести сообщение о необходимости ввода капчи
+    // 6 - Подписаться на рассылку "Бесплатный гид по направлениям в IT", либо вывести сообщение о необходимости ввода капчи
     @Test
     public void Subscribe_Directions() {
         webDriver.get(URL);
