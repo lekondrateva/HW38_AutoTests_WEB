@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 public record HttpStatusCodeCheckPage(WebDriver webDriver) {
 
-    public void GetResponseCode(String url) throws IOException {
+    public void getResponseCode(String url) throws IOException {
         int expectedStatusCode=200;
         webDriver.get(url);
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);

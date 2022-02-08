@@ -145,16 +145,16 @@ public class Tests {
 
     // 1 - При нажатии на значок Skillfactory в левом верхнем углу открывается главная страница
     @Test
-    public void Go_SFMainPage() {
+    public void goSFMainPage() {
         webDriver.get(URL);
-        urlPage.goUrl_xpath(SF_LINK_XPATH);
+        urlPage.goUrlXpath(SF_LINK_XPATH);
         urlPage.verifyLinkUrl(URL);
         //webDriver.close();
     }
 
     // 2 - "Бесплатно" - Получить ссылку элемента, сравнить с ожидаемой ссылкой
     @Test
-    public void VerifyUrl_FreeEvents() {
+    public void verifyUrlFreeEvents() {
         webDriver.get(URL);
         urlPage.verifyUrlOfElement(FORFREE_EVENTS_LINK_XPATH, FREEEVENTS_URL);
         //webDriver.close();
@@ -162,18 +162,18 @@ public class Tests {
 
     // 3 - "Партнерам" - Проверить доступность формы Регистрации издателя
     @Test
-    public void Open_PartnerRegistrationForm() {
+    public void openPartnerRegistrationForm() {
         webDriver.get(URL);
         webDriver.findElement(By.xpath(PARTNERS_PROGRAM_XPATH)).click();
         webDriver.findElement(By.xpath(PARTNERS_PROGRAM_FORM_XPATH)).click();
-        urlPage.goUrl_xpath(PARTNERS_PROGRAM_JOIN_XPATH);
+        urlPage.goUrlXpath(PARTNERS_PROGRAM_JOIN_XPATH);
         urlPage.verifyLinkUrl(PARTNERS_PROGRAM_TARGET_URL);
         //webDriver.close();
     }
 
     // 4 -"Сотрудничество" - Заполнить и отправить заявку на сотрудничество, убедиться, что получено сообщение об отправке
     @Test
-    public void Request_ThePartnership() {
+    public void requestThePartnership() {
         webDriver.get(URL);
         webDriver.findElement(By.xpath(PARTNERS_XPATH)).click();
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
@@ -194,14 +194,14 @@ public class Tests {
 
     // 5 - При переходе в раздел "Блог" код ответа 200
     @Test
-    public void GetResponse_Blog() throws IOException {
-        httpStatusCodeCheckPage.GetResponseCode(BLOG_URL);
+    public void getResponseBlog() throws IOException {
+        httpStatusCodeCheckPage.getResponseCode(BLOG_URL);
         //webDriver.close();
     }
 
     // 6 - Подписаться на рассылку "Бесплатный гид по направлениям в IT", либо вывести сообщение о необходимости ввода капчи
     @Test
-    public void Subscribe_Directions() {
+    public void subscribeDirections() {
         webDriver.get(URL);
         subscribePage.subscribe(EMAIL_INPUT_FIELD_XPATH, email);
         //WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
@@ -218,12 +218,12 @@ public class Tests {
 
     // 7 - Перейти в направление DS, перейти на курс "Data scientist", убедиться, что открывается ожидаемая ссылка
     @Test
-    public void Open_DScourse() {
+    public void openDScourse() {
         webDriver.get(URL);
         webDriver.findElement(By.xpath(DATA_SCIENCE_DIRECTION_XPATH)).click();
-        ArrayList<String> tabs2 = new ArrayList<String>(webDriver.getWindowHandles());
+        ArrayList<String> tabs2 = new ArrayList<>(webDriver.getWindowHandles());
         webDriver.switchTo().window(tabs2.get(1));
-        urlPage.goUrl_xpath(DATA_SCIENTIST_XPATH);
+        urlPage.goUrlXpath(DATA_SCIENTIST_XPATH);
         urlPage.verifyLinkUrl(DATA_SCIENTIST_URL);
         webDriver.close();
         webDriver.switchTo().window(tabs2.get(0));
@@ -232,7 +232,7 @@ public class Tests {
 
     // 8 HABR - Открыть ссылку на Habr с главной страницы, убедиться, что открывается ожидаемая ссылка
     @Test
-    public void Go_Habr() {
+    public void goHabr() {
         webDriver.get(URL);
         boolean element = elementsPage.existsElement(NEW_YEAR_SALE_XPATH);
         if (element) {
@@ -240,8 +240,8 @@ public class Tests {
         } else {
             System.out.println("There is no any New Year Sale");
         }
-        urlPage.goUrl_xpath(HABR_XPATH);
-        ArrayList<String> tabs2 = new ArrayList<String>(webDriver.getWindowHandles());
+        urlPage.goUrlXpath(HABR_XPATH);
+        ArrayList<String> tabs2 = new ArrayList<>(webDriver.getWindowHandles());
         webDriver.switchTo().window(tabs2.get(1));
         urlPage.verifyLinkUrl(HABR_URL);
         webDriver.close();
@@ -251,7 +251,7 @@ public class Tests {
 
     // 9 Facebook - Открыть ссылку на Facebook с главной страницы, убедиться, что открывается ожидаемая ссылка
     @Test
-    public void Go_Facebook() {
+    public void goFacebook() {
         webDriver.get(URL);
         boolean element = elementsPage.existsElement(NEW_YEAR_SALE_XPATH);
         if (element) {
@@ -259,8 +259,8 @@ public class Tests {
         } else {
             System.out.println("There is no any New Year Sale");
         }
-        urlPage.goUrl_xpath(FB_XPATH);
-        ArrayList<String> tabs2 = new ArrayList<String>(webDriver.getWindowHandles());
+        urlPage.goUrlXpath(FB_XPATH);
+        ArrayList<String> tabs2 = new ArrayList<>(webDriver.getWindowHandles());
         webDriver.switchTo().window(tabs2.get(1));
         urlPage.verifyLinkUrl(FB_URL);
         webDriver.close();
@@ -270,7 +270,7 @@ public class Tests {
 
     // 10 - Twitter - Получить ссылку элемента, сравнить с ожидаемой ссылкой
     @Test
-    public void VerifyUrl_twitter() {
+    public void verifyUrlTwitter() {
         webDriver.get(URL);
         urlPage.verifyUrlOfElement(TWIT_XPATH, TWIT_URL);
         //webDriver.close();
@@ -278,7 +278,7 @@ public class Tests {
 
     // 11 Instagram - Получить ссылку элемента, сравнить с ожидаемой ссылкой
     @Test
-    public void VerifyUrl_instagram() {
+    public void verifyUrlInstagram() {
         webDriver.get(URL);
         urlPage.verifyUrlOfElement(INSTA_XPATH, INSTA_URL);
         //webDriver.close();
@@ -286,7 +286,7 @@ public class Tests {
 
     // 12 YouTube - Открыть ссылку на Youtube с главной страницы, убедиться, что открывается ожидаемая ссылка
     @Test
-    public void Go_Youtube() {
+    public void goYoutube() {
         webDriver.get(URL);
         boolean element = elementsPage.existsElement(NEW_YEAR_SALE_XPATH);
         if (element) {
@@ -294,8 +294,8 @@ public class Tests {
         } else {
             System.out.println("There is no any New Year Sale");
         }
-        urlPage.goUrl_xpath(YOUTUBE_XPATH);
-        ArrayList<String> tabs2 = new ArrayList<String>(webDriver.getWindowHandles());
+        urlPage.goUrlXpath(YOUTUBE_XPATH);
+        ArrayList<String> tabs2 = new ArrayList<>(webDriver.getWindowHandles());
         webDriver.switchTo().window(tabs2.get(1));
         urlPage.verifyLinkUrl(YOUTUBE_URL);
         webDriver.close();
@@ -305,21 +305,21 @@ public class Tests {
 
     // 13 При переходе в раздел "Разработка игр" код ответа 200
     @Test
-    public void getResponse_razrabotkaIgr() throws IOException {
-        httpStatusCodeCheckPage.GetResponseCode(RAZRABOTKA_IGR_URL);
+    public void getResponseRazrabotkaIgr() throws IOException {
+        httpStatusCodeCheckPage.getResponseCode(RAZRABOTKA_IGR_URL);
         //webDriver.close();
     }
 
     // 14 При переходе в раздел "Аналитика данных" код ответа 200
     @Test
-    public void getResponse_analitikaDannyh() throws IOException {
-        httpStatusCodeCheckPage.GetResponseCode(DA_URL);
+    public void getResponseAnalitikaDannyh() throws IOException {
+        httpStatusCodeCheckPage.getResponseCode(DA_URL);
         //webDriver.close();
     }
 
     // 15 Telegram - Открыть ссылку на Telegram с главной страницы, убедиться, что открывается ожидаемая ссылка
     @Test
-    public void Go_Telegram() {
+    public void goTelegram() {
         webDriver.get(URL);
         boolean element = elementsPage.existsElement(NEW_YEAR_SALE_XPATH);
         if (element) {
@@ -327,8 +327,8 @@ public class Tests {
         } else {
             System.out.println("There is no any New Year Sale");
         }
-        urlPage.goUrl_xpath(TELEGRAM_XPATH);
-        ArrayList<String> tabs2 = new ArrayList<String>(webDriver.getWindowHandles());
+        urlPage.goUrlXpath(TELEGRAM_XPATH);
+        ArrayList<String> tabs2 = new ArrayList<>(webDriver.getWindowHandles());
         webDriver.switchTo().window(tabs2.get(1));
         urlPage.verifyLinkUrl(TELEGRAM_URL);
         webDriver.close();
@@ -338,14 +338,14 @@ public class Tests {
 
     // 16 При переходе в раздел "Программирование" код ответа 200
     @Test
-    public void GetResponse_Programming() throws IOException {
-        httpStatusCodeCheckPage.GetResponseCode(PROGR_URL);
+    public void getResponseProgramming() throws IOException {
+        httpStatusCodeCheckPage.getResponseCode(PROGR_URL);
         //webDriver.close();
     }
 
     // 17 Contented - Открыть ссылку на Contented с главной страницы, убедиться, что открывается ожидаемая ссылка
     @Test
-    public void Go_Contented() {
+    public void goContented() {
         webDriver.get(URL);
         boolean element = elementsPage.existsElement(NEW_YEAR_SALE_XPATH);
         if (element) {
@@ -353,8 +353,8 @@ public class Tests {
         } else {
             System.out.println("There is no any New Year Sale");
         }
-        urlPage.goUrl_xpath(CONTENTED_XPATH);
-        ArrayList<String> tabs2 = new ArrayList<String>(webDriver.getWindowHandles());
+        urlPage.goUrlXpath(CONTENTED_XPATH);
+        ArrayList<String> tabs2 = new ArrayList<>(webDriver.getWindowHandles());
         webDriver.switchTo().window(tabs2.get(1));
         urlPage.verifyLinkUrl(CONTENTED_URL);
         webDriver.close();
@@ -364,14 +364,14 @@ public class Tests {
 
     // 18 Веб-разработка - При переходе в раздел "Веб-разработка" код ответа 200
     @Test
-    public void GetResponse_Web_razrabotka() throws IOException {
-        httpStatusCodeCheckPage.GetResponseCode(WEB_URL);
+    public void getResponseWebRazrabotka() throws IOException {
+        httpStatusCodeCheckPage.getResponseCode(WEB_URL);
        // webDriver.close();
     }
 
     // 19 Тестирование - Получить ссылку элемента, сравнить с ожидаемой ссылкой
     @Test
-    public void VerifyUrl_testing() {
+    public void verifyUrlTesting() {
         webDriver.get(URL);
         urlPage.verifyUrlOfElement(TEST_XPATH, TEST_URL);
         //webDriver.close();
@@ -379,7 +379,7 @@ public class Tests {
 
     // 20 - Productlive - Открыть ссылку на ProductLive с главной страницы, убедиться, что открывается ожидаемая ссылка
     @Test
-    public void Go_Productlive() {
+    public void goProductlive() {
         webDriver.get(URL);
         boolean element = elementsPage.existsElement(NEW_YEAR_SALE_XPATH);
         if (element) {
@@ -387,8 +387,8 @@ public class Tests {
         } else {
             System.out.println("There is no any New Year Sale");
         }
-        urlPage.goUrl_xpath(PRODUCT_LIVE_XPATH);
-        ArrayList<String> tabs2 = new ArrayList<String>(webDriver.getWindowHandles());
+        urlPage.goUrlXpath(PRODUCT_LIVE_XPATH);
+        ArrayList<String> tabs2 = new ArrayList<>(webDriver.getWindowHandles());
         webDriver.switchTo().window(tabs2.get(1));
         urlPage.verifyLinkUrl(PRODUCT_LIVE_URL);
         webDriver.close();

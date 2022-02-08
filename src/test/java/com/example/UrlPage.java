@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
 
 public record UrlPage(WebDriver webDriver) {
-    public void goUrl_xpath(String xpath) {
+    public void goUrlXpath(String xpath) {
         webDriver.findElement(By.xpath(xpath)).click();
     }
 
